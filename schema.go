@@ -156,7 +156,7 @@ func (d *Schema) parseSchema(documentNode interface{}, currentSchema *subSchema)
 			return err
 		}
 
-		if jsonReference.HasFullUrl {
+		if jsonReference.HasFullUrl || standaloneDocument != nil {
 			currentSchema.ref = &jsonReference
 		} else {
 			inheritedReference, err := currentSchema.ref.Inherits(jsonReference)
