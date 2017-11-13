@@ -155,7 +155,7 @@ func (d *Schema) parseSchema(documentNode interface{}, currentSchema *subSchema)
 		if err != nil {
 			return err
 		}
-
+		standaloneDocument := d.pool.GetStandaloneDocument()
 		if jsonReference.HasFullUrl || standaloneDocument != nil {
 			currentSchema.ref = &jsonReference
 		} else {
